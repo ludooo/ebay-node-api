@@ -7,7 +7,7 @@ let { getItem,
 let urlObject = require('./buildURL');
 
 function Ebay(options) {
-    console.log(options);
+    //console.log(options);
 
     if (!options) throw new Error("Options is missing, please provide the input");
     if (!options.clientID) throw Error("Client ID is Missing\ncheck documentation to get Client ID http://developer.ebay.com/DevZone/account/");
@@ -26,7 +26,7 @@ Ebay.prototype = {
         this.options.operationName = "findItemsByKeywords";
         this.options.param = "keywords";
         let url = urlObject.buildSearchUrl(this.options);
-        console.log(url);
+        //console.log(url);
         return getRequest(url).then((data) => {
             let result = JSON.parse(data);
             return result["findItemsByKeywordsResponse"];
@@ -43,7 +43,7 @@ Ebay.prototype = {
         this.options.operationName = "findItemsByCategory";
         this.options.param = "categoryId";
         let url = urlObject.buildSearchUrl(this.options);
-        console.log(url);
+        //console.log(url);
         return getRequest(url).then((data) => {
             let result = JSON.parse(data);
             return result["findItemsByCategoryResponse"];
