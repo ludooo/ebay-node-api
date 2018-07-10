@@ -53,7 +53,6 @@ const searchItems = function (searchConfig) {
     if (searchConfig.filter != undefined) queryParam = queryParam + "&filter=" + JSON.stringify(searchConfig.filter).replace(/[{}]/g, "").replace(/"/g, "");
     if (searchConfig.sort != undefined) queryParam = queryParam + "&sort=" + searchConfig.sort;
     if (searchConfig.category_ids != undefined) queryParam = queryParam + "&category_ids=" + searchConfig.category_ids;
-    27386
     return new Promise((resolve, reject) => {
         makeRequest('api.ebay.com', `/buy/browse/v1/item_summary/search?${queryParam}`, 'GET', this.options.body, auth).then((result) => {
             resolve(result);
