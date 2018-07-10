@@ -21,7 +21,7 @@ let getRequest = function getRequest(url) {
 
 let makeRequest = function postRequest(hostName, endpoint, methodName, data, token) {
     methodName == "POST" ? dataString = qs.stringify(data) : '';
-    console.log(endpoint);
+    //console.log(endpoint);
     const options = {
         "hostname": hostName,
         "path": endpoint,
@@ -32,8 +32,8 @@ let makeRequest = function postRequest(hostName, endpoint, methodName, data, tok
             "cache-control": "no-cache",
         }
     };
-    console.log("------------------------");
-    console.log(options);
+    //console.log("------------------------");
+    //console.log(options);
     return new Promise(function (resolve, reject) {
         var req = httpRequest.request(options, res => {
             res.setEncoding("utf8");
