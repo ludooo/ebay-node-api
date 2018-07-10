@@ -50,7 +50,7 @@ const searchItems = function (searchConfig) {
     queryParam = queryParam + (searchConfig.categoryId ? "&category_ids=" + searchConfig.categoryId : '');
     queryParam = queryParam + (searchConfig.limit ? "&limit=" + searchConfig.limit : "");
     if (searchConfig.fieldgroups != undefined) queryParam = queryParam + "&fieldgroups=" + searchConfig.fieldgroups.toString();
-    if (searchConfig.filter != undefined) queryParam = queryParam + "&filter=" + encodeURI(JSON.stringify(searchConfig.filter).replace(/[{}]/g, "").replace(/"/g, ""));
+    if (searchConfig.filter != undefined) queryParam = queryParam + "&filter=" + encodeURI(JSON.stringify(searchConfig.filter).replace(/[{}]/g, "").replace(/"/g, "")).replace(/,/g, "%2C").replace(/:/g, "%3A");
     if (searchConfig.sort != undefined) queryParam = queryParam + "&sort=" + searchConfig.sort;
     if (searchConfig.category_ids != undefined) queryParam = queryParam + "&category_ids=" + searchConfig.category_ids;
     console.log(queryParam);
